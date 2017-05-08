@@ -9,6 +9,9 @@ Prerequisites for running the script include:
 
 ### Installing Xcode and accept the license agreements
 
+[Apple Developer Site](developer.apple.com/download/) or from the 
+[app store](https://itunes.apple.com/us/app/xcode/id497799835)
+
 ### Installing Homebrew
 
 `/usr/bin/ruby -e "$(curl -fsSL raw.githubusercontent.com/Homebrew/install/master/install)"`
