@@ -9,9 +9,6 @@ Prerequisites for running the script include:
 
 ### Installing Xcode and accept the license agreements
 
-[Apple Developer Site](developer.apple.com/download/) or from the 
-[app store](https://itunes.apple.com/us/app/xcode/id497799835)
-
 ### Installing Homebrew
 
 `/usr/bin/ruby -e "$(curl -fsSL raw.githubusercontent.com/Homebrew/install/master/install)"`
@@ -58,7 +55,7 @@ To reflect the path to your QT_5 installation.
 	./build-kstars.sh -ac
 ```
 
-Note that the -a option announces key installation steps audibly.
+Note that the -a option announces key installation steps audibly, the -c option creates and builds a Qt Creator Project and the -p option will create the dmg that can easily be distributed.
 
 After the script finishes, whichever method you chose, you should have built a PlanetaryImager app that can actually be used.
 
@@ -66,7 +63,7 @@ After the script finishes, whichever method you chose, you should have built a P
 
 	-If you chose the QT Creator option, you should follow the EditingPlanetaryImagerInQTCreatorOnOSX.pdf document to get all set up to do your editing.
 
-(If you want to edit the code you must have QT Creator installed on your system.
+If you want to edit the code you must have QT Creator installed on your system.
 
 Now you should be all set up!!!
 
