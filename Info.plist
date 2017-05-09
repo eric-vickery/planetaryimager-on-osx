@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>CFBundleExecutable</key>
-  <string>planetary_imager</string>
+  <string>planetary_imager_launcher.sh</string>
   <key>CFBundleIconFile</key>
   <string>planetary_imager</string>
   <key>CFBundleIdentifier</key>

@@ -173,17 +173,17 @@ function buildPlanetaryImager
 
 function bundlePlanetaryImager
 {
-	# mkdir ${PLANETARY_IMAGER_DIR}/App
-	# mkdir ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App
-	# mkdir ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents
-	mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/MacOS
-	mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Resources
-        mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Drivers
+    mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/MacOS
+    mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Resources
+    mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Drivers
 
-	cp ${DIR}/info.plist ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents
-	cp ${PLANETARY_IMAGER_DIR}/build/src/planetary_imager ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/MacOS
-	cp ${PLANETARY_IMAGER_DIR}/PlanetaryImager/files/planetary_imager.icns ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Resources
-	
+    cp ${DIR}/info.plist ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents
+    cp ${DIR}/planetary_imager_launcher.sh ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/MacOS
+    cp ${PLANETARY_IMAGER_DIR}/build/src/planetary_imager ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/MacOS
+    cp ${PLANETARY_IMAGER_DIR}/PlanetaryImager/files/planetary_imager.icns ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Resources
+    cp ${PLANETARY_IMAGER_DIR}/build/src/drivers/zwo_asi/libzwo_asi_imager.so ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Drivers/libzwo_asi_imager.dylib
+    # Need to add more camera drivers as they become available on OS X
+
     # announce "Fixing the directory names and such"
     ${DIR}/fix-libraries.sh
 
