@@ -178,6 +178,7 @@ function bundlePlanetaryImager
 	# mkdir ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents
 	mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/MacOS
 	mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Resources
+        mkdir -p ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/Drivers
 
 	cp ${DIR}/info.plist ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents
 	cp ${PLANETARY_IMAGER_DIR}/build/src/planetary_imager ${PLANETARY_IMAGER_DIR}/App/PlanetaryImager.App/Contents/MacOS

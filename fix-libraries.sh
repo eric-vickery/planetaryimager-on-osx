@@ -11,12 +11,12 @@ source "${DIR}/build-env.sh" > /dev/null
 
 FILES_TO_COPY=()
 FRAMEWORKS_DIR="${PLANETARY_IMAGER_APP}/Contents/Frameworks"
-#PLUGINS_DIR="${PLANETARY_IMAGER_APP}/Contents/PlugIns"
+DRIVERS_DIR="${PLANETARY_IMAGER_APP}/Contents/Drivers"
 DRY_RUN_ONLY=""
 
 IGNORED_OTOOL_OUTPUT="/Qt|qt5|${PLANETARY_IMAGER_APP}/|/usr/lib/|/System/"
 mkdir -p "${FRAMEWORKS_DIR}"
-#mkdir -p "${PLUGINS_DIR}"
+#mkdir -p "${DRIVERS_DIR}"
 
 function dieUsage
 {
@@ -144,7 +144,7 @@ do
 done
 shift $((${OPTIND} - 1))
 
-cd ${CRAFT_DIR}
+cd ${PLANETARY_IMAGER_DIR}
 
 statusBanner "Processing Planetary Imager executable"
 processTarget "${PLANETARY_IMAGER_APP}/Contents/MacOS/planetary_imager"
@@ -152,8 +152,22 @@ processTarget "${PLANETARY_IMAGER_APP}/Contents/MacOS/planetary_imager"
 statusBanner "Copying first round of files"
 copyFilesToFrameworks
 
-statusBanner "Processing all of the files in the Frameworks dir"
+statusBanner "Processing all of the files in the Drivers dir"
+# Then do all of the files in the Drivers Dir
+#
+FILES_TO_COPY=()
+for file in ${DRIVERS_DIR}/*
+do
+    base=$(basename $file)
 
+        statusBanner "Processing Driver file $base"
+    processTarget $file
+done
+
+statusBanner "Copying second round of files for Frameworks"
+copyFilesToFrameworks
+
+statusBanner "Processing all of the files in the Frameworks dir"
 # Then do all of the files in the Frameworks Dir
 #
 FILES_TO_COPY=()
@@ -165,7 +179,7 @@ do
     processTarget $file
 done
 
-statusBanner "Copying eighth round of files for Frameworks"
+statusBanner "Copying third round of files for Frameworks"
 copyFilesToFrameworks
 
 statusBanner "The following files are now in Frameworks:"
